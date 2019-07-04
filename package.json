@@ -1,0 +1,41 @@
+{
+  "name": "dam",
+  "version": "1.0.0",
+  "description": "Documento de Arrecadação Municipal",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "html-pdf": "^2.2.0",
+    "pem": "^1.14.2",
+    "request": "^2.88.0",
+    "xml-crypto": "^1.4.0",
+    "xml-js": "^1.6.11",
+    "xsd-schema-validator": "^0.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giryco/dam.git"
+  },
+  "keywords": [
+    "documento",
+    "arrecadacao",
+    "municipal",
+    "dam",
+    "danfse",
+    "danfe",
+    "nfse"
+  ],
+  "author": "Ryzzan Salman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/giryco/dam/issues"
+  },
+  "homepage": "https://github.com/giryco/dam#readme"
+}
