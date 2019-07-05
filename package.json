@@ -7,7 +7,7 @@
     "lib": "lib"
   },
   "dependencies": {
-    "fs": "^0.0.1-security",
+    "fs": "0.0.1-security",
     "html-pdf": "^2.2.0",
     "pem": "^1.14.2",
     "request": "^2.88.0",

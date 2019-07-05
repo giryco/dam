@@ -582,6 +582,7 @@ const setDam = (object, xmlNfse) => {
                                             body {
                                                 width: 210mm;
                                                 height: 297mm;
+                                                margin: 0.8cm;
                                             }
                                         }
                                     </style>
@@ -697,9 +698,9 @@ const setDam = (object, xmlNfse) => {
                                             </div>
                                 
                                             <div id="footer-data">
-                                                <div id="emmiter-company-name">${city.prefeitura.nome} - ${city.prefeitura.secretaria.nome}</div>
+                                                <div id="emmiter-company-name">${city.prefeitura.name} - ${city.prefeitura.secretaria.name}</div>
                                                 <div id="emmiter-full-address">
-                                                    ${city.prefeitura.secretaria.endereco.endereco}, ${city.prefeitura.secretaria.endereco.numero}, ${city.prefeitura.secretaria.endereco.complemento}, ${city.prefeitura.secretaria.endereco.bairro} - CEP: ${city.prefeitura.secretaria.endereco.cep} - ${city.nome} / ${city.codigo_uf}
+                                                    ${city.prefeitura.secretaria.endereco.endereco}, ${city.prefeitura.secretaria.endereco.numero}, ${city.prefeitura.secretaria.endereco.complemento}, ${city.prefeitura.secretaria.endereco.bairro} - CEP: ${city.prefeitura.secretaria.endereco.cep} - ${city.name} / ${city.stateInitials}
                                                 </div>
                                                 <div id="emmiter-phone">Telefone: ${city.prefeitura.secretaria.contato.telefone[0].numero}</div>
                                                 <div id="emmiter-email">Email: ${city.prefeitura.secretaria.contato.email[0].descricao}</div>
