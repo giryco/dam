@@ -32,7 +32,7 @@ const dam = (object, xmlNfse, pathToPfd) => {
 
             (pathToPfd.substr(-1) === '/') ? pathToPfd = pathToPfd: pathToPfd = pathToPfd + '/';
 
-            pdf.create(res.html, options).toFile(pathToPfd + 'dam_' + res.providerId.trim() + '_' + res.nfseNumber.trim() + '.pdf', (error, response) => {
+            pdf.create(res.html, options).toFile(pathToPfd + 'dam_' + res.providerId.replace(/\s{2,}/g, '') + '_' + res.nfseNumber.replace(/\s{2,}/g, '') + '.pdf', (error, response) => {
                 if (error) {
                     return error;
                 }
