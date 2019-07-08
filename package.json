@@ -9,6 +9,7 @@
   "dependencies": {
     "fs": "0.0.1-security",
     "html-pdf": "^2.2.0",
+    "md5": "^2.2.1",
     "pem": "^1.14.2",
     "request": "^2.88.0",
     "xml-crypto": "^1.4.0",

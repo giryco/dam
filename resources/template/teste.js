@@ -129,11 +129,11 @@ const setDam = (object, xmlNfse) => {
                         </div>
                         <div id="nfse-competence">
                             <p>Competência:</p>
-                            <p>${formatDate(objNotaFiscal['InfNfse']['DataEmissao']['_text'].split('T')[0], 'pt-br')}</p>
+                            <p>${formatDate(principal['dataEmissao'].split('T')[0], 'pt-br')}</p>
                         </div>
                         <div id="nfse-code">
                             <p>Código de verificação:</p>
-                            <p>${objNotaFiscal['InfNfse']['CodigoVerificacao']['_text']}</p>
+                            <p>${principal['codigoVerificacao']}</p>
                         </div>
                     </div>
                 
