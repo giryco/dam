@@ -1,4 +1,4 @@
-const dam = require('./index');
+const dam = require('../../index');
 const object = {
     codigoMunicipio: 5205109,
     logoEmpresa: 'https://icon2.kisspng.com/20171221/see/phoenix-logo-vector-design-5a3c31b00e5f48.7862516515138943200589.jpg'

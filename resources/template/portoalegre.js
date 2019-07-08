@@ -42,7 +42,7 @@ const setDam = (object, xmlNfse) => {
             };
             console.log(parseXmlToJson.nfse.InfNfse, 50);
             const objNotaFiscal = parseXmlToJson['nfse'];
-            
+
             objNotaFiscal.InfNfse.NaturezaOperacao ? principal['naturezaOperacao'] = setInvoiceType(objNotaFiscal.InfNfse.NaturezaOperacao._text) : principal['naturezaOperacao'] = '';
             principal['numero'] = objNotaFiscal['InfNfse']['Numero']['_text'];
             principal['dataEmissao'] = objNotaFiscal['InfNfse']['DataEmissao']['_text'];
@@ -132,14 +132,14 @@ const setDam = (object, xmlNfse) => {
                 servico['valores']['valorIr'] = (objNotaFiscal.InfNfse.DeclaracaoPrestacaoServico.InfDeclaracaoPrestacaoServico.Servico.Valores.ValorIr && objNotaFiscal.InfNfse.DeclaracaoPrestacaoServico.InfDeclaracaoPrestacaoServico.Servico.Valores.ValorIr._text != '') ? parseFloat(objNotaFiscal.InfNfse.DeclaracaoPrestacaoServico.InfDeclaracaoPrestacaoServico.Servico.Valores.ValorIr._text, 2) : 0;
                 servico['valores']['valorInss'] = (objNotaFiscal.InfNfse.DeclaracaoPrestacaoServico.InfDeclaracaoPrestacaoServico.Servico.Valores.ValorInss && objNotaFiscal.InfNfse.DeclaracaoPrestacaoServico.InfDeclaracaoPrestacaoServico.Servico.Valores.ValorInss._text != '') ? parseFloat(objNotaFiscal.InfNfse.DeclaracaoPrestacaoServico.InfDeclaracaoPrestacaoServico.Servico.Valores.ValorInss._text, 2) : 0;
             }
-        
+
             var somaDesconto = servico['valores']['descontoCondicionado'] + servico['valores']['descontoIncondicionado'];
             var somaRetencoesFederais = servico['valores']['valorCsll'] + servico['valores']['valorPis'] + servico['valores']['valorCofins'] + servico['valores']['valorIr'] + servico['valores']['valorInss'];
-        
+
             var desconto = parseFloat(somaDesconto, 2);
             var retencaoCalculo = somaRetencoesFederais * servico['valores']['baseCalculo'];
             var retencaoFederal = parseFloat(retencaoCalculo, 2);
-        
+
             // var servicoCodigoMunicipio = '';
             // var servicoDescricaoMunicipio = '';
             // if (servico['valores']['issRetido'] === 1) {
@@ -152,10 +152,10 @@ const setDam = (object, xmlNfse) => {
             //     } else {
             //         servicoCodigoMunicipio = (objNotaFiscal['InfNfse']['PrestadorServico']['Endereco']['CodigoMunicipio'] && objNotaFiscal['InfNfse']['PrestadorServico']['Endereco']['CodigoMunicipio']['_text'] != '') ? tomadorServico['endereco']['codigoMunicipio'] : ' ';    
             //     }
-                
+
             //     servicoDescricaoMunicipio = city.name;
             // }
-        
+
             const html = `<!DOCTYPE html>
                                 <html lang="en">
                                 <head>
@@ -166,475 +166,474 @@ const setDam = (object, xmlNfse) => {
                                     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
                                 
                                     <style>
-                                        /**
-                                         * RESET: start
-                                         */
-                                        html, body, div, span, applet, object, iframe,
-                                        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-                                        a, abbr, acronym, address, big, cite, code,
-                                        del, dfn, em, img, ins, kbd, q, s, samp,
-                                        small, strike, strong, sub, sup, tt, var,
-                                        b, u, i, center,
-                                        dl, dt, dd, ol, ul, li,
-                                        fieldset, form, label, legend,
-                                        table, caption, tbody, tfoot, thead, tr, th, td,
-                                        article, aside, canvas, details, embed, 
-                                        figure, figcaption, footer, header, hgroup, 
-                                        menu, nav, output, ruby, section, summary,
-                                        time, mark, audio, video {
-                                            margin: 0;
-                                            padding: 0;
-                                            border: 0;
-                                            font-size: 100%;
-                                            font: inherit;
-                                            vertical-align: baseline;
+                                    /**
+                                     * RESET: start
+                                     */
+                                    html, body, div, span, applet, object, iframe,
+                                    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+                                    a, abbr, acronym, address, big, cite, code,
+                                    del, dfn, em, img, ins, kbd, q, s, samp,
+                                    small, strike, strong, sub, sup, tt, var,
+                                    b, u, i, center,
+                                    dl, dt, dd, ol, ul, li,
+                                    fieldset, form, label, legend,
+                                    table, caption, tbody, tfoot, thead, tr, th, td,
+                                    article, aside, canvas, details, embed, 
+                                    figure, figcaption, footer, header, hgroup, 
+                                    menu, nav, output, ruby, section, summary,
+                                    time, mark, audio, video {
+                                        margin: 0;
+                                        padding: 0;
+                                        border: 0;
+                                        font-size: 100%;
+                                        font: inherit;
+                                        vertical-align: baseline;
+                                    }
+                                    /* HTML5 display-role reset for older browsers */
+                                    article, aside, details, figcaption, figure, 
+                                    footer, header, hgroup, menu, nav, section {
+                                        display: block;
+                                    }
+                                    html { zoom: 0.65 }
+                                    body {
+                                        line-height: 1;
+                                    }
+                                    ol, ul {
+                                        list-style: none;
+                                    }
+                                    blockquote, q {
+                                        quotes: none;
+                                    }
+                                    blockquote:before, blockquote:after,
+                                    q:before, q:after {
+                                        content: '';
+                                        content: none;
+                                    }
+                                    table {
+                                        border-collapse: collapse;
+                                        border-spacing: 0;
+                                    }
+                                    /**
+                                     * RESET: end
+                                     */
+                                    
+                                    body {
+                                        font-family: 'Open Sans', sans-serif;
+                                        font-size: 14px;
+                                        height: 100%;
+                                        border: solid 1px rgb(104, 136, 167);
+                                    }
+                            
+                                    #main {
+                                        width: 100%;
+                                        margin: auto;
+                                    }
+                            
+                                    #top-bar {
+                                        width: 100%;
+                                        text-align: center;
+                                        font-size: 16px;
+                                        padding: 10px 0;
+                                        background-clip: border-box;
+                                        background: rgb(226, 226, 226);
+                                    }
+                            
+                                    #nfse-area {
+                                        width: 100%;
+                                        display: -webkit-flex;
+                                    }
+                            
+                                    #nfse-number {
+                                        width: 40%;
+                                        font-size: 22px;
+                                        padding: 5px 0 5px 10px;
+                                        border-right: solid 1px rgb(104, 136, 167);
+                                    }
+                            
+                                    #nfse-date {
+                                        width: 20%;
+                                        padding: 0 0 0 10px;
+                                        border-right: solid 1px rgb(104, 136, 167);
+                                    }
+                            
+                                    #nfse-date p:nth-child(1) {
+                                        margin: 5px 0 0 0;
+                                        font-size: 10px;
+                                        line-height: 10px;
+                                    }
+                            
+                                    #nfse-date span:nth-child(1) {
+                                        font-size: 10px;
+                                    }
+                            
+                                    #nfse-competence {
+                                        width: 20%;
+                                        padding: 0 0 0 10px;
+                                        border-right: solid 1px rgb(104, 136, 167);
+                                    }
+                            
+                                    #nfse-competence p:nth-child(1) {
+                                        margin: 5px 0 0 0;
+                                        font-size: 10px;
+                                        line-height: 10px;
+                                    }
+                            
+                                    #nfse-code {
+                                        width: 20%;
+                                        padding: 0 0 0 10px;
+                                    }
+                            
+                                    #nfse-code p:nth-child(1) {
+                                        margin: 5px 0 0 0;
+                                        font-size: 10px;
+                                        line-height: 10px;
+                                    }
+                            
+                                    #emitter-area {
+                                        margin-top: 5px;
+                                        width: 100%;
+                                        display: -webkit-flex;
+                                        border: solid 1px rgb(104, 136, 167);
+                                        border-radius: 15px;
+                                    }
+                            
+                                    #emitter-picture {
+                                        width: 25%;
+                                        padding: 10px 0 10px 10px;
+                                    }
+        
+                                    #emitter-picture img {
+                                        height: 100px;
+                                        max-width: 200px;
+                                    }
+                            
+                                    #emitter-data {
+                                        padding: 10px 0 10px 10px;
+                                        display: -webkit-flex;
+                                        -webkit-flex-wrap: wrap;
+                                        width: 75%;
+                                    }
+                            
+                                    #emmiter-company-name {
+                                        width: 100%;
+                                        font-weight: bolder;
+                                    }
+                            
+                                    #emmiter-cnpj-cpf {
+                                        width: 50%;
+                                        font-weight: bolder;
+                                    }
+                            
+                                    #emmiter-municipal-registration {
+                                        width: 50%;
+                                        font-weight: bolder;
+                                    }
+                            
+                                    #emmiter-full-address {
+                                        width: 100%;
+                                    }
+                            
+                                    #emmiter-phone {
+                                        width: 50%;
+                                    }
+                            
+                                    #emmiter-email {
+                                        width: 50%;
+                                    }
+                            
+                                    #taker-area {
+                                        width: 100% - 20px;
+                                        display: -webkit-flex;
+                                        -webkit-flex-wrap: wrap;
+                                        padding: 10px;
+                                        border: solid 1px rgb(104, 136, 167);
+                                        border-radius: 15px;
+                                        margin-top: 5px;
+                                    }
+                            
+                                    #taker-title {
+                                        width: 100%;
+                                        font-weight: bolder;
+                                        border-bottom: solid 1px rgb(104, 136, 167);
+                                        margin-bottom: 5px;
+                                    }
+                            
+                                    #taker-cnpj-cpf {
+                                        width: 50%;
+                                        font-weight: bolder;
+                                        margin-bottom: 5px;
+                                    }
+                            
+                                    #taker-municipal-registration {
+                                        width: 50%;
+                                        font-weight: bolder;
+                                        margin-bottom: 5px;
+                                    }
+                            
+                                    #taker-company-name {
+                                        width: 50%;
+                                        font-weight: bolder;
+                                        margin-bottom: 5px;
+                                    }
+                            
+                                    #taker-full-address {
+                                        width: 100%;
+                                        margin-bottom: 5px;
+                                    }
+                            
+                                    #taker-phone {
+                                        width: 50%;
+                                    }
+                            
+                                    #taker-email {
+                                        width: 50%;
+                                    }
+                            
+                                    #service-area {
+                                        width: 100% - 20px;
+                                        display: -webkit-flex;
+                                        -webkit-flex-wrap: wrap;
+                                        padding: 10px;
+                                        border: solid 1px rgb(104, 136, 167);
+                                        border-radius: 15px;
+                                        margin-top: 5px;
+                                    }
+                            
+                                    #service-title {
+                                        width: 100%;
+                                        font-weight: bolder;
+                                        border-bottom: solid 1px rgb(104, 136, 167);
+                                        margin-bottom: 5px;
+                                    }
+                            
+                                    #municipal-tax-code {
+                                        width: 100% - 20px;
+                                        padding: 10px;
+                                        margin-top: 5px;
+                                        background: rgb(226, 226, 226);
+                                    }
+                            
+                                    #municipal-tax-code p:nth-child(1) {
+                                        font-weight: bolder;
+                                    }
+                            
+                                    #lc11603-and-description {
+                                        width: 100% - 20px;
+                                        padding: 10px;
+                                        margin-top: 5px;
+                                    }
+                            
+                                    #lc11603-and-description p:nth-child(1) {
+                                        font-weight: bolder;
+                                    }
+                            
+                                    #city-and-code {
+                                        width: 100% - 20px;
+                                        padding: 10px;
+                                        margin-top: 5px;
+                                        background: rgb(226, 226, 226);
+                                    }
+                            
+                                    #city-and-code p:nth-child(1) {
+                                        font-weight: bolder;
+                                    }
+                            
+                                    #operation-type {
+                                        width: 100% - 20px;
+                                        float: left;
+                                        padding: 10px;
+                                        margin-top: 5px;
+                                    }
+                            
+                                    #operation-type p:nth-child(1) {
+                                        font-weight: bolder;
+                                    }
+                            
+                                    #tax-area {
+                                        width: 100%;
+                                        margin-top: 5px;
+                                    }
+                            
+                                    #tax-area-left {
+                                        float: left;
+                                        margin-right: inherit;
+                                        min-width: 45%;
+                                        padding: 10px;
+                                        border: 1px solid rgb(104, 136, 167);
+                                        border-radius: 15px;
+                                        height: 180px;
+                                    }
+                            
+                                    #tax-left-title {
+                                        font-weight: bolder;
+                                    }
+                            
+                                    #tax-left-title span:nth-child(1) {
+                                        float: left;
+                                    }
+                            
+                                    #tax-left-title span:nth-child(2) {
+                                        float: right;
+                                    }
+                            
+                                    #tax-discount span:nth-child(1) {
+                                        float: left;
+                                    }
+                            
+                                    #tax-discount span:nth-child(2) {
+                                        float: right;
+                                    }
+                            
+                                    #tax-federal-retention span:nth-child(1) {
+                                        float: left;
+                                    }
+                            
+                                    #tax-federal-retention span:nth-child(2) {
+                                        float: right;
+                                    }
+                            
+                                    #tax-iss-taken span:nth-child(1) {
+                                        float: left;
+                                    }
+                            
+                                    #tax-iss-taken span:nth-child(2) {
+                                        float: right;
+                                    }
+                            
+                                    #net-value span:nth-child(1) {
+                                        float: left;
+                                        color: rgb(122, 13, 13);
+                                        font-weight: bolder;
+                                    }
+                            
+                                    #net-value span:nth-child(2) {
+                                        float: right;
+                                        color: rgb(122, 13, 13);
+                                        font-weight: bolder;
+                                    }
+                                    
+                                    #tax-area-right {
+                                        float: right;
+                                        min-width: 45%;
+                                        padding: 10px;
+                                        border: 1px solid rgb(104, 136, 167);
+                                        border-radius: 15px;
+                                        height: 180px;
+                                    }
+                            
+                                    #tax-right-title {
+                                        font-weight: bolder;
+                                    }
+                            
+                                    #tax-right-title span:nth-child(1) {
+                                        float: left;
+                                    }
+                            
+                                    #tax-right-title span:nth-child(2) {
+                                        float: right;
+                                    }
+                            
+                                    #tax-deduction span:nth-child(1) {
+                                        float: left;
+                                    }
+                            
+                                    #tax-deduction span:nth-child(2) {
+                                        float: right;
+                                    }
+                            
+                                    #unconditional-discount span:nth-child(1) {
+                                        float: left;
+                                    }
+                            
+                                    #unconditional-discount span:nth-child(2) {
+                                        float: right;
+                                    }
+                            
+                                    #calculation-basis span:nth-child(1) {
+                                        float: left;
+                                        font-weight: bolder;
+                                    }
+                            
+                                    #calculation-basis span:nth-child(2) {
+                                        float: right;
+                                        font-weight: bolder;
+                                    }
+                            
+                                    #aliquot span:nth-child(1) {
+                                        float: left;
+                                    }
+                            
+                                    #aliquot span:nth-child(2) {
+                                        float: right;
+                                    }
+                            
+                                    #iss-value span:nth-child(1) {
+                                        float: left;
+                                        font-weight: bolder;
+                                        color: rgb(122, 13, 13);
+                                    }
+                            
+                                    #iss-value span:nth-child(2) {
+                                        float: right;
+                                        font-weight: bolder;
+                                        color: rgb(122, 13, 13);
+                                    }
+                            
+                                    #others-area {
+                                        width: 100% - 20px;            
+                                        padding: 10px;
+                                        border: solid 1px rgb(104, 136, 167);
+                                        border-radius: 15px;
+                                        margin-top: 5px;
+                                    }
+                            
+                                    #others-area p:nth-child(1) {
+                                        font-weight: bolder;
+                                    }
+                            
+                                    #footer-area {
+                                        margin-top: 5px;
+                                        width: 100%;
+                                        display: -webkit-flex;
+                                    }
+                            
+                                    #footer-picture {
+                                        width: 15%;
+                                        padding: 10px 0 10px 10px;
+                                    }
+                            
+                                    #footer-data {
+                                        padding: 10px 0 10px 10px;
+                                        display: -webkit-flex;
+                                        -webkit-flex-wrap: wrap;
+                                        width: 85%;
+                                    }
+                            
+                                    .clear {
+                                        clear: both;
+                                    }
+                            
+                                    .row {
+                                        border-bottom: 1px solid rgb(104, 136, 167);
+                                        margin-bottom: 5px;
+                                    }
+                            
+                                    @page {
+                                        size: A4;
+                                        margin: 0;
+                                    }
+                            
+                                    @media print {
+                                        div#footer-area {
+                                            position: fixed;
+                                            bottom: 0;
                                         }
-                                        /* HTML5 display-role reset for older browsers */
-                                        article, aside, details, figcaption, figure, 
-                                        footer, header, hgroup, menu, nav, section {
-                                            display: block;
-                                        }
-                                        html { zoom: 0.65 }
+                                        html,
                                         body {
-                                            line-height: 1;
+                                            width: 210mm;
+                                            height: 297mm;
                                         }
-                                        ol, ul {
-                                            list-style: none;
-                                        }
-                                        blockquote, q {
-                                            quotes: none;
-                                        }
-                                        blockquote:before, blockquote:after,
-                                        q:before, q:after {
-                                            content: '';
-                                            content: none;
-                                        }
-                                        table {
-                                            border-collapse: collapse;
-                                            border-spacing: 0;
-                                        }
-                                        /**
-                                         * RESET: end
-                                         */
-                                        
-                                        body {
-                                            font-family: 'Open Sans', sans-serif;
-                                            font-size: 14px;
-                                            height: 100%;
-                                            border: solid 1px rgb(104, 136, 167);
-                                        }
-                                
-                                        #main {
-                                            width: 100%;
-                                            margin: auto;
-                                        }
-                                
-                                        #top-bar {
-                                            width: 100%;
-                                            text-align: center;
-                                            font-size: 16px;
-                                            padding: 10px 0;
-                                            background-clip: border-box;
-                                            background: rgb(226, 226, 226);
-                                        }
-                                
-                                        #nfse-area {
-                                            width: 100%;
-                                            display: -webkit-flex;
-                                        }
-                                
-                                        #nfse-number {
-                                            width: 40%;
-                                            font-size: 22px;
-                                            padding: 5px 0 5px 10px;
-                                            border-right: solid 1px rgb(104, 136, 167);
-                                        }
-                                
-                                        #nfse-date {
-                                            width: 20%;
-                                            padding: 0 0 0 10px;
-                                            border-right: solid 1px rgb(104, 136, 167);
-                                        }
-                                
-                                        #nfse-date p:nth-child(1) {
-                                            margin: 5px 0 0 0;
-                                            font-size: 10px;
-                                            line-height: 10px;
-                                        }
-                                
-                                        #nfse-date span:nth-child(1) {
-                                            font-size: 10px;
-                                        }
-                                
-                                        #nfse-competence {
-                                            width: 20%;
-                                            padding: 0 0 0 10px;
-                                            border-right: solid 1px rgb(104, 136, 167);
-                                        }
-                                
-                                        #nfse-competence p:nth-child(1) {
-                                            margin: 5px 0 0 0;
-                                            font-size: 10px;
-                                            line-height: 10px;
-                                        }
-                                
-                                        #nfse-code {
-                                            width: 20%;
-                                            padding: 0 0 0 10px;
-                                        }
-                                
-                                        #nfse-code p:nth-child(1) {
-                                            margin: 5px 0 0 0;
-                                            font-size: 10px;
-                                            line-height: 10px;
-                                        }
-                                
-                                        #emitter-area {
-                                            margin-top: 5px;
-                                            width: 100%;
-                                            display: -webkit-flex;
-                                            border: solid 1px rgb(104, 136, 167);
-                                            border-radius: 15px;
-                                        }
-                                
-                                        #emitter-picture {
-                                            width: 25%;
-                                            padding: 10px 0 10px 10px;
-                                        }
-            
-                                        #emitter-picture img {
-                                            height: 100px;
-                                            max-width: 200px;
-                                        }
-                                
-                                        #emitter-data {
-                                            padding: 10px 0 10px 10px;
-                                            display: -webkit-flex;
-                                            -webkit-flex-wrap: wrap;
-                                            width: 75%;
-                                        }
-                                
-                                        #emmiter-company-name {
-                                            width: 100%;
-                                            font-weight: bolder;
-                                        }
-                                
-                                        #emmiter-cnpj-cpf {
-                                            width: 50%;
-                                            font-weight: bolder;
-                                        }
-                                
-                                        #emmiter-municipal-registration {
-                                            width: 50%;
-                                            font-weight: bolder;
-                                        }
-                                
-                                        #emmiter-full-address {
-                                            width: 100%;
-                                        }
-                                
-                                        #emmiter-phone {
-                                            width: 50%;
-                                        }
-                                
-                                        #emmiter-email {
-                                            width: 50%;
-                                        }
-                                
-                                        #taker-area {
-                                            width: 100% - 20px;
-                                            display: -webkit-flex;
-                                            -webkit-flex-wrap: wrap;
-                                            padding: 10px;
-                                            border: solid 1px rgb(104, 136, 167);
-                                            border-radius: 15px;
-                                            margin-top: 5px;
-                                        }
-                                
-                                        #taker-title {
-                                            width: 100%;
-                                            font-weight: bolder;
-                                            border-bottom: solid 1px rgb(104, 136, 167);
-                                            margin-bottom: 5px;
-                                        }
-                                
-                                        #taker-cnpj-cpf {
-                                            width: 50%;
-                                            font-weight: bolder;
-                                            margin-bottom: 5px;
-                                        }
-                                
-                                        #taker-municipal-registration {
-                                            width: 50%;
-                                            font-weight: bolder;
-                                            margin-bottom: 5px;
-                                        }
-                                
-                                        #taker-company-name {
-                                            width: 50%;
-                                            font-weight: bolder;
-                                            margin-bottom: 5px;
-                                        }
-                                
-                                        #taker-full-address {
-                                            width: 100%;
-                                            margin-bottom: 5px;
-                                        }
-                                
-                                        #taker-phone {
-                                            width: 50%;
-                                        }
-                                
-                                        #taker-email {
-                                            width: 50%;
-                                        }
-                                
-                                        #service-area {
-                                            width: 100% - 20px;
-                                            display: -webkit-flex;
-                                            -webkit-flex-wrap: wrap;
-                                            padding: 10px;
-                                            border: solid 1px rgb(104, 136, 167);
-                                            border-radius: 15px;
-                                            margin-top: 5px;
-                                        }
-                                
-                                        #service-title {
-                                            width: 100%;
-                                            font-weight: bolder;
-                                            border-bottom: solid 1px rgb(104, 136, 167);
-                                            margin-bottom: 5px;
-                                        }
-                                
-                                        #municipal-tax-code {
-                                            width: 100% - 20px;
-                                            padding: 10px;
-                                            margin-top: 5px;
-                                            background: rgb(226, 226, 226);
-                                        }
-                                
-                                        #municipal-tax-code p:nth-child(1) {
-                                            font-weight: bolder;
-                                        }
-                                
-                                        #lc11603-and-description {
-                                            width: 100% - 20px;
-                                            padding: 10px;
-                                            margin-top: 5px;
-                                        }
-                                
-                                        #lc11603-and-description p:nth-child(1) {
-                                            font-weight: bolder;
-                                        }
-                                
-                                        #city-and-code {
-                                            width: 100% - 20px;
-                                            padding: 10px;
-                                            margin-top: 5px;
-                                            background: rgb(226, 226, 226);
-                                        }
-                                
-                                        #city-and-code p:nth-child(1) {
-                                            font-weight: bolder;
-                                        }
-                                
-                                        #operation-type {
-                                            width: 100% - 20px;
-                                            float: left;
-                                            padding: 10px;
-                                            margin-top: 5px;
-                                        }
-                                
-                                        #operation-type p:nth-child(1) {
-                                            font-weight: bolder;
-                                        }
-                                
-                                        #tax-area {
-                                            width: 100%;
-                                            margin-top: 5px;
-                                        }
-                                
-                                        #tax-area-left {
-                                            float: left;
-                                            margin-right: inherit;
-                                            min-width: 45%;
-                                            padding: 10px;
-                                            border: 1px solid rgb(104, 136, 167);
-                                            border-radius: 15px;
-                                            height: 120px;
-                                        }
-                                
-                                        #tax-left-title {
-                                            font-weight: bolder;
-                                        }
-                                
-                                        #tax-left-title span:nth-child(1) {
-                                            float: left;
-                                        }
-                                
-                                        #tax-left-title span:nth-child(2) {
-                                            float: right;
-                                        }
-                                
-                                        #tax-discount span:nth-child(1) {
-                                            float: left;
-                                        }
-                                
-                                        #tax-discount span:nth-child(2) {
-                                            float: right;
-                                        }
-                                
-                                        #tax-federal-retention span:nth-child(1) {
-                                            float: left;
-                                        }
-                                
-                                        #tax-federal-retention span:nth-child(2) {
-                                            float: right;
-                                        }
-                                
-                                        #tax-iss-taken span:nth-child(1) {
-                                            float: left;
-                                        }
-                                
-                                        #tax-iss-taken span:nth-child(2) {
-                                            float: right;
-                                        }
-                                
-                                        #net-value span:nth-child(1) {
-                                            float: left;
-                                            color: rgb(122, 13, 13);
-                                            font-weight: bolder;
-                                        }
-                                
-                                        #net-value span:nth-child(2) {
-                                            float: right;
-                                            color: rgb(122, 13, 13);
-                                            font-weight: bolder;
-                                        }
-                                        
-                                        #tax-area-right {
-                                            float: right;
-                                            min-width: 45%;
-                                            padding: 10px;
-                                            border: 1px solid rgb(104, 136, 167);
-                                            border-radius: 15px;
-                                            height: 120px;
-                                        }
-                                
-                                        #tax-right-title {
-                                            font-weight: bolder;
-                                        }
-                                
-                                        #tax-right-title span:nth-child(1) {
-                                            float: left;
-                                        }
-                                
-                                        #tax-right-title span:nth-child(2) {
-                                            float: right;
-                                        }
-                                
-                                        #tax-deduction span:nth-child(1) {
-                                            float: left;
-                                        }
-                                
-                                        #tax-deduction span:nth-child(2) {
-                                            float: right;
-                                        }
-                                
-                                        #unconditional-discount span:nth-child(1) {
-                                            float: left;
-                                        }
-                                
-                                        #unconditional-discount span:nth-child(2) {
-                                            float: right;
-                                        }
-                                
-                                        #calculation-basis span:nth-child(1) {
-                                            float: left;
-                                            font-weight: bolder;
-                                        }
-                                
-                                        #calculation-basis span:nth-child(2) {
-                                            float: right;
-                                            font-weight: bolder;
-                                        }
-                                
-                                        #aliquot span:nth-child(1) {
-                                            float: left;
-                                        }
-                                
-                                        #aliquot span:nth-child(2) {
-                                            float: right;
-                                        }
-                                
-                                        #iss-value span:nth-child(1) {
-                                            float: left;
-                                            font-weight: bolder;
-                                            color: rgb(122, 13, 13);
-                                        }
-                                
-                                        #iss-value span:nth-child(2) {
-                                            float: right;
-                                            font-weight: bolder;
-                                            color: rgb(122, 13, 13);
-                                        }
-                                
-                                        #others-area {
-                                            width: 100% - 20px;            
-                                            padding: 10px;
-                                            border: solid 1px rgb(104, 136, 167);
-                                            border-radius: 15px;
-                                            margin-top: 5px;
-                                        }
-                                
-                                        #others-area p:nth-child(1) {
-                                            font-weight: bolder;
-                                        }
-                                
-                                        #footer-area {
-                                            margin-top: 5px;
-                                            width: 100%;
-                                            display: -webkit-flex;
-                                        }
-                                
-                                        #footer-picture {
-                                            width: 15%;
-                                            padding: 10px 0 10px 10px;
-                                        }
-                                
-                                        #footer-data {
-                                            padding: 10px 0 10px 10px;
-                                            display: -webkit-flex;
-                                            -webkit-flex-wrap: wrap;
-                                            width: 85%;
-                                        }
-                                
-                                        .clear {
-                                            clear: both;
-                                        }
-                                
-                                        .row {
-                                            border-bottom: 1px solid rgb(104, 136, 167);
-                                            margin-bottom: 5px;
-                                        }
-                                
-                                        @page {
-                                            size: A4;
-                                            margin: 0;
-                                        }
-                                
-                                        @media print {
-                                            div#footer-area {
-                                                position: fixed;
-                                                bottom: 0;
-                                            }
-                                            html,
-                                            body {
-                                                width: 210mm;
-                                                height: 297mm;
-                                                margin: 0.8cm;
-                                            }
-                                        }
+                                    }
                                     </style>
                                 </head>
                                 <body>
@@ -720,7 +719,17 @@ const setDam = (object, xmlNfse) => {
                                                 <div class="clear row"></div>
                                                 <div id="tax-federal-retention"><span>() Retenções Federais: </span> <span>R$ ${formatCash(parseFloat(retencaoFederal))}</span></div>
                                                 <div class="clear row"></div>
-                                                <div id="tax-iss-taken"><span>(-) ISS Retido na Fonte: </span> <span>R$ ${(servico['valores']['issRetido'] === 1) ? servico['valores']['valorIss'] : formatCash(parseFloat(0))}</span></div>
+                                                <div id="tax-federal-retention" style="margin-left: 25px; font-size: 10px;"><span>CSLL: </span> <span>R$ ${parseFloat(servico['valores']['valorCsll'], 2)}</span></div>
+                                                <div class="clear row"></div>
+                                                <div id="tax-federal-retention" style="margin-left: 25px; font-size: 10px;"><span>PIS: </span> <span>R$ ${parseFloat(servico['valores']['valorPis'], 2)}</span></div>
+                                                <div class="clear row"></div>
+                                                <div id="tax-federal-retention" style="margin-left: 25px; font-size: 10px;"><span>COFINS: </span> <span>R$ ${parseFloat(servico['valores']['valorCofins'], 2)}</span></div>
+                                                <div class="clear row"></div>
+                                                <div id="tax-federal-retention" style="margin-left: 25px; font-size: 10px;"><span>IR: </span> <span>R$ ${parseFloat(servico['valores']['valorIr'], 2)}</span></div>
+                                                <div class="clear row"></div>
+                                                <div id="tax-federal-retention" style="margin-left: 25px; font-size: 10px;"><span>INSS: </span> <span>R$ ${parseFloat(servico['valores']['valorInss'], 2)}</span></div>
+                                                <div class="clear row"></div>
+                                                <div id="tax-iss-taken"><span>(-) ISS Retido na Fonte: </span> <span>R$ ${servico['valores']['valorIss']}</span></div>
                                                 <div class="clear row"></div>
                                                 <div id="net-value"><span>Valor Liquido: </span> <span>R$ ${servico['valores']['valorLiquidoNfse']}</span></div>
                                                 <div class="clear row"></div>
@@ -786,7 +795,7 @@ const setInvoiceType = (typeCode) => {
 
     for (let i = 0; i < types.length; i++) {
         const element = types[i];
-        
+
         if ((code - 1) === i) {
             return element;
         }
