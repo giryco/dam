@@ -1,6 +1,6 @@
 {
-  "name": "dam",
-  "version": "0.0.1",
+  "name": "dam-nfse",
+  "version": "0.0.2",
   "description": "Documento de Arrecadação Municipal",
   "main": "index.js",
   "directories": {
