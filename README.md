@@ -23,12 +23,12 @@ dam.dam(object, xmlNfse, pathToPdf);
 
 
 ##Parâmetros
-- object: Object
-* codigoMunicipio - código do município onde foi gerado o XML de consulta de NFSe
-* logoEmpresa - atalho para imagem de logo da empresa prestadora do serviço
-* base64 - no caso de a imagem ser gerada a partir de um base64 e não vir de um arquivo em diretório ou url
-* mimetype - no caso de uso de base64, passar também o mimetype
+* object: Object
+    * codigoMunicipio - código do município onde foi gerado o XML de consulta de NFSe
+    * logoEmpresa - atalho para imagem de logo da empresa prestadora do serviço
+    * base64 - no caso de a imagem ser gerada a partir de um base64 e não vir de um arquivo em diretório ou url
+    * mimetype - no caso de uso de base64, passar também o mimetype
 
-- xmlNfse: String - XML retornado na consulta (com sucesso) de NFSe gerada
+* xmlNfse: String - XML retornado na consulta (com sucesso) de NFSe gerada
 
-- pathToPdf: String - Diretório onde se deseja gravar os DAMs em formato .pdf
+* pathToPdf: String - Diretório onde se deseja gravar os DAMs em formato .pdf
