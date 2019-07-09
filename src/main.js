@@ -184,7 +184,11 @@ const setDam = (object, xmlNfse, pathToTemplate) => {
             populateTemplate.servico['descricaoDoServico'] = object.descricaoDoServico ? object.descricaoDoServico : ' ';
             if (city.nfseKeyword != 'catalao') {
                 populateTemplate.servico['discriminacao'] = (objNotaFiscal.InfNfse.Servico.Discriminacao && objNotaFiscal.InfNfse.Servico.Discriminacao._text != '') ? objNotaFiscal.InfNfse.Servico.Discriminacao._text : ' ';
-                populateTemplate.servico['codigoTributacaoMunicipio'] = (objNotaFiscal.InfNfse.Servico.CodigoTributacaoMunicipio && objNotaFiscal.InfNfse.Servico.CodigoTributacaoMunicipio._text != '') ? parseFloat(objNotaFiscal.InfNfse.Servico.CodigoTributacaoMunicipio._text, 2) : '';
+                if (object.codigoTributacao) {
+                    populateTemplate.servico['codigoTributacaoMunicipio'] = object.codigoTributacao;
+                } else {
+                    populateTemplate.servico['codigoTributacaoMunicipio'] = (objNotaFiscal.InfNfse.Servico.CodigoTributacaoMunicipio && objNotaFiscal.InfNfse.Servico.CodigoTributacaoMunicipio._text != '') ? parseFloat(objNotaFiscal.InfNfse.Servico.CodigoTributacaoMunicipio._text, 2) : '';
+                }
                 populateTemplate.servico['valores']['baseCalculo'] = (objNotaFiscal.InfNfse.Servico.Valores.BaseCalculo && objNotaFiscal.InfNfse.Servico.Valores.BaseCalculo._text != '') ? parseFloat(objNotaFiscal.InfNfse.Servico.Valores.BaseCalculo._text, 2) : 0;
                 populateTemplate.servico['valores']['descontoIncondicionado'] = (objNotaFiscal.InfNfse.Servico.Valores.DescontoIncondicionado && objNotaFiscal.InfNfse.Servico.Valores.DescontoIncondicionado._text != '') ? parseFloat(objNotaFiscal.InfNfse.Servico.Valores.DescontoIncondicionado._text, 2) : 0;
                 populateTemplate.servico['valores']['descontoCondicionado'] = (objNotaFiscal.InfNfse.Servico.Valores.DescontoCondicionado && objNotaFiscal.InfNfse.Servico.Valores.DescontoCondicionado._text != '') ? parseFloat(objNotaFiscal.InfNfse.Servico.Valores.DescontoCondicionado._text, 2) : 0;
@@ -200,7 +204,11 @@ const setDam = (object, xmlNfse, pathToTemplate) => {
                 populateTemplate.servico['valores']['valorInss'] = (objNotaFiscal.InfNfse.Servico.Valores.ValorInss && objNotaFiscal.InfNfse.Servico.Valores.ValorInss._text != '') ? parseFloat(objNotaFiscal.InfNfse.Servico.Valores.ValorInss._text, 2) : 0;
             } else {
                 populateTemplate.servico['discriminacao'] = (objNotaFiscal.InfNfse.DeclaracaoPrestacaoServico.InfDeclaracaoPrestacaoServico.Servico.Discriminacao && objNotaFiscal.InfNfse.DeclaracaoPrestacaoServico.InfDeclaracaoPrestacaoServico.Servico.Discriminacao._text != '') ? objNotaFiscal.InfNfse.DeclaracaoPrestacaoServico.InfDeclaracaoPrestacaoServico.Servico.Discriminacao._text : ' ';
-                populateTemplate.servico['codigoTributacaoMunicipio'] = (objNotaFiscal.InfNfse.DeclaracaoPrestacaoServico.InfDeclaracaoPrestacaoServico.Servico.CodigoTributacaoMunicipio && objNotaFiscal.InfNfse.DeclaracaoPrestacaoServico.InfDeclaracaoPrestacaoServico.Servico.CodigoTributacaoMunicipio._text != '') ? parseFloat(objNotaFiscal.InfNfse.DeclaracaoPrestacaoServico.InfDeclaracaoPrestacaoServico.Servico.CodigoTributacaoMunicipio._text, 2) : '';
+                if (object.codigoTributacao) {
+                    populateTemplate.servico['codigoTributacaoMunicipio'] = object.codigoTributacao;
+                } else {
+                    populateTemplate.servico['codigoTributacaoMunicipio'] = (objNotaFiscal.InfNfse.DeclaracaoPrestacaoServico.InfDeclaracaoPrestacaoServico.Servico.CodigoTributacaoMunicipio && objNotaFiscal.InfNfse.DeclaracaoPrestacaoServico.InfDeclaracaoPrestacaoServico.Servico.CodigoTributacaoMunicipio._text != '') ? parseFloat(objNotaFiscal.InfNfse.DeclaracaoPrestacaoServico.InfDeclaracaoPrestacaoServico.Servico.CodigoTributacaoMunicipio._text, 2) : '';
+                }
                 populateTemplate.servico['valores']['baseCalculo'] = (objNotaFiscal.InfNfse.ValoresNfse.BaseCalculo && objNotaFiscal.InfNfse.ValoresNfse.BaseCalculo._text != '') ? parseFloat(objNotaFiscal.InfNfse.ValoresNfse.BaseCalculo._text, 2) : 0;
                 populateTemplate.servico['valores']['descontoIncondicionado'] = (objNotaFiscal.InfNfse.DeclaracaoPrestacaoServico.InfDeclaracaoPrestacaoServico.Servico.Valores.DescontoIncondicionado && objNotaFiscal.InfNfse.DeclaracaoPrestacaoServico.InfDeclaracaoPrestacaoServico.Servico.Valores.DescontoIncondicionado._text != '') ? parseFloat(objNotaFiscal.InfNfse.DeclaracaoPrestacaoServico.InfDeclaracaoPrestacaoServico.Servico.Valores.DescontoIncondicionado._text, 2) : 0;
                 populateTemplate.servico['valores']['descontoCondicionado'] = (objNotaFiscal.InfNfse.DeclaracaoPrestacaoServico.InfDeclaracaoPrestacaoServico.Servico.Valores.DescontoCondicionado && objNotaFiscal.InfNfse.DeclaracaoPrestacaoServico.InfDeclaracaoPrestacaoServico.Servico.Valores.DescontoCondicionado._text != '') ? parseFloat(objNotaFiscal.InfNfse.DeclaracaoPrestacaoServico.InfDeclaracaoPrestacaoServico.Servico.Valores.DescontoCondicionado._text, 2) : 0;
