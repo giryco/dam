@@ -7,6 +7,7 @@ const xmlToJson = require('xml-js');
 const setDam = (object, xmlNfse) => {
     return new Promise((resolve, reject) => {
         try {
+            xmlNfse = xmlNfse.replace(/ns3:/g, '').replace(/ns4:/g, ''); console.log(xmlNfse, 10);
             const descricaoDoServico = '';
             const xmlSplitToString = xmlNfse.split('<InfNfse')[1].replace(/\n/g, '');
             const xmlSplitted = xmlSplitToString.split(/>(.+)/)[1].split('</InfNfse>')[0];
