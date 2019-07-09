@@ -488,6 +488,7 @@ const populateDam = (populateTemplate, object, city) => {
                                     body {
                                         width: 210mm;
                                         height: 297mm;
+                                        margin: 0.8cm;
                                     }
                                 }
                                 </style>
@@ -512,7 +513,9 @@ const populateDam = (populateTemplate, object, city) => {
                                         </div>
                                     </div>
                                     <div id="emitter-area">
-                                        <div id="emitter-picture"><img src="${object.logoEmpresa}" alt="Logo"></div>
+                                        <div id="emitter-picture">
+                                            <img src="${object.logoEmpresa ? object.logoEmpresa : 'data:' + object['mimetype'] + ';base64,' + object['base64']}" alt="Logo ${populateTemplate.prestadorServico['razaoSocial']}" width="100px">
+                                        </div>
                                         <div id="emitter-data">
                                             <div id="emmiter-company-name">${populateTemplate.prestadorServico['razaoSocial']}</div>
                                             <div id="emmiter-cnpj-cpf"> 
