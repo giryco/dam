@@ -1,6 +1,6 @@
 {
   "name": "dam-nfse",
-  "version": "0.0.5",
+  "version": "1.0.0",
   "description": "Documento de Arrecadação Municipal",
   "main": "index.js",
   "directories": {
@@ -9,12 +9,7 @@
   "dependencies": {
     "fs": "0.0.1-security",
     "html-pdf": "^2.2.0",
-    "md5": "^2.2.1",
-    "pem": "^1.14.2",
-    "request": "^2.88.0",
-    "xml-crypto": "^1.4.0",
-    "xml-js": "^1.6.11",
-    "xsd-schema-validator": "^0.6.0"
+    "xml-js": "^1.6.11"
   },
   "devDependencies": {},
   "scripts": {
