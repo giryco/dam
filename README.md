@@ -8,7 +8,7 @@ npm install --save dam-nfse@latest
 
 ##Exemplos de utilização
 ```
-const dam = require('../../index');
+const dam = require('dam-nfse');
 const object = {
     codigoMunicipio: 4314902,
     logoEmpresa: 'https://icon2.kisspng.com/20171221/see/phoenix-logo-vector-design-5a3c31b00e5f48.7862516515138943200589.jpg'
