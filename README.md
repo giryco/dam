@@ -6,7 +6,7 @@
 npm install --save dam-nfse@latest
 ```
 
-##Exemplos de utilização
+##Exemplo de utilização
 ```
 const dam = require('dam-nfse');
 const object = {
