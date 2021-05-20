@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "fs": "0.0.1-security",
-    "html-pdf": "^2.2.0",
+    "html-pdf": "^3.0.1",
     "xml-js": "^1.6.11"
   },
   "devDependencies": {},
